@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bitmovin Player with Widevine DRM</title>
+    <script src="https://cdn.bitmovin.com/player/web/8/bitmovinplayer.js"></script>
+</head>
+<body>
+    <div id="player-container"></div>
+
+    <script>
+        var conf = {
+            key: 'BITMOVIN-PLAYER-KEY', // plug in your player key
+            playback: {
+                autoplay: true
+            },
+            drm: {
+                widevine: {
+                    LA_URL: 'WIDEVINE-LICENSE-URL' // plug in your license url
+                }
+            }
+        };
+
+        var playerContainer = document.getElementById('player-container');
+        var player = new bitmovin.player.Player(playerContainer, conf);
+
+        player.load({
+            dash: 'MANIFEST-URL' // plug in your manifest url
+        }).then(function() {
+            console.log('Successfully loaded DASH stream with Widevine DRM.');
+        }).catch(function(error) {
+            console.error('Failed to load DASH stream:', error.message);
+        });
+    </script>
+</body>
+</html>
+
