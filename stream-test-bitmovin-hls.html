@@ -1,60 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitmovin Player with Fairplay DRM</title>
-    <!-- Load Bitmovin Player library -->
-    <script type="text/javascript" src="https://gc.kes.v2.scr.kaspersky-labs.com/7EA5E9BB-55E1-4C31-9C21-4943DDFED2E4/main.js?attr=PrKqUIaPgYsUUQVIvRoajmJUtRP1CstUso6G5XDz9AZgIBO-2WLqfRD4y5v2AfYumDngo7Hbol32WxNH3UYcGT-NkdMgZz4LjMqb1W0UH9aA2H3BiMTPEOx8pfSlwtaGWHdoXNGOQum8ubiDsQe1X4DqGEVMw_qawP6WNd-dg1gqXL2TF02A_6xTDIzgaYD-oKjBt0Lnz3hF63dcopKK35-CMyz6gXkUN-d6RddPQzxbrGFjhgN9HlEP4k0_C4e9oAJx6IfjKslN_a4D5ATM_VYGgGxoao6veau3c1vG8ZktYL6eJquvCuXhq98RZFOjjEPRtBkSNNwqyznrY4m6OrbrTz9a-NOCNP1l7-03iBy4ODL_qcoASvEjNHZwNxQghEprCH_uWtwvSRbuZkalSI6LjACjEc3H5LUkcFmrotoWWUXsst5_R1-wuBreqs4sN7UnOeNg7_Hlgw0uLSQLvQ27f7vJKeZDCwlim90xhSk7J-wlC7Y4XBNl8JRpSxBerr5vP68Vwa9XFqAeeM1L1FazSJg6fdq716xVB7iAYKXoFbjbIu5Ypvan_a8T7EexywF6hbp9crs6PmivLwUg8fJEtfBSi6eA0hgxEcm7mQLH27XcVnDSgHpW7P18fT8FBPVqwCJTc-RAyh_c3kimDwnbWHQi3Atim7NTeFkAlbAI_EbhkC9_eDDoq9PIXakI-wdAymA3uIoUrvHayXsYSfhOTq_42apEg0py3eJTUyFtMD47ZufnN9koe2v87DyY2jvTEtwnGqYzMxt4qDuZtF4RqZXs82RO44rvL_nbaiRR_c5_BxvxUXkdahFLFEwF-xbBmP2laifRSa5KiHJG7WEJG3orgNijFBQBxiCfg20nphXipqBL93QXD6ZsCUkru_lZvzSoqbGtDYTKth0PWy5-o5SbCMLUNRc4qb8p42eiLdwmcSxmqflt4rkfbzEU6GvK8rrIuM-CRE_1K8ijjOgnD7WNNYd7E3fpDcflPxoZmNXJP0SRXwRU3vEqDIEZe2Xz8rP1aUuEGpsiokxizrD8LvP0-M3aTWLVXIBjABlAan97LMu7XmNaYtg-9q6a8K_1VKVgDpzXzX4fStT9zpYFEEqlxnLuHx7KpI9bjLOHRZXdGxz5SA84RMiIwRamQhZcfCtqyaEhnYyzTkDl3ZoUk4DrOoZODR2upzBV4BfDWRGx8NPsUo5wOeNdmfy2LruiCRdTwWxGtg3ekEyQdSvmcguQZ-2QYeC6rYBudpG-1-L6FAlDrPyU7U5EtRK5RIKu9FSrUg1115kAR42Bp40me59pLUP1ajv_TckthTE_XMWdjmhBIv_O2wYH0uPRBKIiEXad2YS7oz-cK43eMNGDEhgMBX5XHbugIAkZqq4pM5AYEjcTm6SZs8EZWvJhy58JgOUMjgMMDxVuiZ78K41ygc5ahaPwg8rRf10s3bo3ZMCdZC8LIPrmPcpOjS9oznf6-fVtl9spJZM1wxDLlTf2ZvuPbo1ui8lWL4IJy5JtXnPFXYzmFlI7yypSJmrGuv7jI_kN6WJPlJhFqqh4Tg4wSo-6MFWnFbsvelmMcgViWfP7lLL1ekcejBX7Pis3rcIy54-aWB4JOar9KWV_PseORgjUhwmBBgZU7nAq3u-jAyrVCfCikDkFTEKM4-ACb2aqLEKzg5dJ-tZG8SzkQzgzLHfCu4gZanC92-pR4uKWtkBOqzclwadzxM0MJ6PkTZpYFoMGUXDpqZTOQbnJ5kszUomoN4j8bXPCBebWEl4" nonce="752cab0e8c607383f93bfe27ff8ceae0" charset="UTF-8"></script><script src="https://cdn.bitmovin.com/player/web/8.21.0/bitmovinplayer.js"></script>
-    <!-- Add the Bitmovin Player CSS for styling -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.bitmovin.com/player/web/8.21.0/bitmovinplayer.css">
+<!-- referr to this https://developer.bitmovin.com/playback/docs/playing-protected-content-with-ezdrm  -->
 
-    <style>
-        /* Adjust the player size as needed */
-        #player {
-            width: 100%;
-            height: 500px;
-        }
-    </style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bitmovin Player with Widevine DRM</title>
+    <script src="https://cdn.bitmovin.com/player/web/8/bitmovinplayer.js"></script>
 </head>
 <body>
-    <!-- HTML element where the player will be embedded -->
-    <div id="player"></div>
+    <div id="player-container"></div>
 
     <script>
-        // Initialize the Bitmovin Player
         var conf = {
-            key: 'BITMOVIN-PLAYER-KEY', // plug in your player key
+            key: 'BITMOVIN_KEY_HERE', // plug in your player key
             playback: {
-                autoplay: true,
-                muted: false
+                autoplay: true
             }
         };
-        var playerContainer = document.getElementById('player');
+
+        var playerContainer = document.getElementById('player-container');
         var player = new bitmovin.player.Player(playerContainer, conf);
 
-        // Setup DRM configuration
-        var drmConfig = {
-            integration: 'fairplay',
-            fairplay: {
-                certificateURL: 'FAIRPLAY-CERTIFICATE-URL', // plug in your certificate url
-                licenseURL: '', // plug in your license url
+        const source = {
+            hls: "MANIFEST_URL_HERE",
+            drm: {
+              fairplay: {
+                LA_URL: "LICENSE_URL_HERE",
+                certificateURL: "CERTIFICATE_URL_HERE",
+                prepareContentId: (contentId) => {
+                  const uri = contentId;
+                  let uriParts = uri.split('://', 1);
+                  const protocol = uriParts[0].slice(-3);
+                  uriParts = uri.split(';', 2);
+                  contentId = uriParts.length > 1 ? uriParts[1] : '';
+                  uriParts = contentId.split('?', 2);
+                  contentId = uriParts.length > 1 ? uriParts[0] : contentId;
+                  return protocol.toLowerCase() == 'skd' ? contentId : '';
+                },
+                prepareLicenseAsync: ckc => {
+                  return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.addEventListener('loadend', () => resolve(new Uint8Array(reader.result)));
+                    reader.addEventListener('error', () => reject(reader.error));
+                    reader.readAsArrayBuffer(ckc);
+                  });
+                },
+                prepareMessage: event => new Blob([event.message], {type: 'application/octet-binary'}),
+                headers: { 'content-type': 'application/octet-stream' },
+                useUint16InitData: true,
+                licenseResponseType: 'blob'
+              }
             }
-        };
+          };
 
-        // Setup HLS source with DRM
-        var source = {
-            dash: 'HLS-MANIFEST-URL', // plug in your manifest url
-            drm: drmConfig
-        };
-
-        // Load the source into the player
-        player.load(source).then(function () {
-            // Success
-            console.log('Player successfully loaded');
-        }).catch(function (error) {
-            // Error handling
-            console.error('Player loading failed', error);
+        player.load(source).then(function() {
+            console.log('Successfully loaded HLS stream with Fairplay DRM.');
+        }).catch(function(error) {
+            console.error('Failed to load HLS stream:', error.message);
         });
     </script>
 </body>

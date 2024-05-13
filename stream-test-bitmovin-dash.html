@@ -1,3 +1,6 @@
+<!-- referr to this https://developer.bitmovin.com/playback/docs/playing-protected-content-with-ezdrm  -->
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,23 +12,25 @@
 
     <script>
         var conf = {
-            key: 'BITMOVIN-PLAYER-KEY', // plug in your player key
+            key: 'BITMOVIN_KEY_HERE', // plug in your player key
             playback: {
                 autoplay: true
-            },
-            drm: {
-                widevine: {
-                    LA_URL: 'WIDEVINE-LICENSE-URL' // plug in your license url
-                }
             }
         };
 
         var playerContainer = document.getElementById('player-container');
         var player = new bitmovin.player.Player(playerContainer, conf);
 
-        player.load({
-            dash: 'MANIFEST-URL' // plug in your manifest url
-        }).then(function() {
+        const source = {
+            dash: "MANIFEST_URL_HERE",
+            drm: {
+              widevine: {
+                LA_URL: "LICENSE_URL_HERE"
+              }
+            }
+          };
+
+        player.load(source).then(function() {
             console.log('Successfully loaded DASH stream with Widevine DRM.');
         }).catch(function(error) {
             console.error('Failed to load DASH stream:', error.message);
