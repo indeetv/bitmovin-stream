@@ -22,10 +22,10 @@
         var player = new bitmovin.player.Player(playerContainer, conf);
 
         const source = {
-            dash: "MANIFEST_URL_HERE",
+            dash: "MANIFEST_URL_HERE", // plug in your dash manifest url
             drm: {
               widevine: {
-                LA_URL: "LICENSE_URL_HERE"
+                LA_URL: "LICENSE_URL_HERE" // plug in your widevine license url
               }
             }
           };

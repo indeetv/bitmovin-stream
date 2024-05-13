@@ -21,11 +21,11 @@
         var player = new bitmovin.player.Player(playerContainer, conf);
 
         const source = {
-            hls: "MANIFEST_URL_HERE",
+            hls: "MANIFEST_URL_HERE", // plug in your hls manifest url
             drm: {
               fairplay: {
-                LA_URL: "LICENSE_URL_HERE",
-                certificateURL: "CERTIFICATE_URL_HERE",
+                LA_URL: "LICENSE_URL_HERE", // plug in your fairplay license url
+                certificateURL: "CERTIFICATE_URL_HERE", // plug in your fairplay certificate url
                 prepareContentId: (contentId) => {
                   const uri = contentId;
                   let uriParts = uri.split('://', 1);
